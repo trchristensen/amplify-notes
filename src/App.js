@@ -3,6 +3,7 @@ import Amplify, { API, graphqlOperation } from "aws-amplify";
 import aws_exports from "./aws-exports";
 import {
   AmplifyAuthenticator,
+  withAuthenticator,
   AmplifySignOut,
   AmplifySignIn,
   AmplifySignUp,
@@ -103,13 +104,13 @@ const App = () => {
     setNoteIndex(index);
   };
 
-  
-
   return (
     <AmplifyAuthenticator>
       <AmplifySignIn headerText="My Custom Sign In Header" slot="sign-in" />
       <AmplifySignUp headerText="My Customer Sign Up Header" slot="sign-up" />
+     
       <AmplifySignOut />
+   
       <div className="flex flex-column items-center justify-center bg-washed-red pa3">
         <h1 className="code f2">Amplify Notetaker</h1>
         <form className="mb3" onSubmit={handleAddNote}>
@@ -143,4 +144,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default withAuthenticator(App);
