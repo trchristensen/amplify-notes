@@ -108,9 +108,9 @@ const App = () => {
     <AmplifyAuthenticator>
       <AmplifySignIn headerText="My Custom Sign In Header" slot="sign-in" />
       <AmplifySignUp headerText="My Customer Sign Up Header" slot="sign-up" />
-     
+
       <AmplifySignOut />
-   
+
       <div className="flex flex-column items-center justify-center bg-washed-red pa3">
         <h1 className="code f2">Amplify Notetaker</h1>
         <form className="mb3" onSubmit={handleAddNote}>
@@ -125,18 +125,21 @@ const App = () => {
             {noteId ? "Update" : "Add"}
           </button>
         </form>
-        <div>
+        <div className="list ph3 ph5-ns pv4">
           {notes.map((item, i) => (
-            <div key={item.id} className="flex items-center">
-              <li
+            <li key={item.id} className="dib mr1 mb2">
+              <div
                 style={{ color: deletingId === item.id && "red" }}
                 onClick={() => handleSetNote(item, i)}
-                className="list pa1 f3"
+                className="f6 f5-ns b db pa2 link dim dark-gray ba b--black-20 flex align-center items-center"
               >
-                {item.note}
-              </li>
-              <button onClick={() => handleDelete(item.id)} className="bg-transparent bn f4">&times;</button>
-            </div>
+                <span className="pa2">{item.note}</span>
+
+                <button onClick={() => handleDelete(item.id)} className="bn f4 flex align-center items-center">
+                  &times;
+                </button>
+              </div>
+            </li>
           ))}
         </div>
       </div>
