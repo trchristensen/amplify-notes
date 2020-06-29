@@ -1,4 +1,4 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is just a demo / boilerplate for AWS Amplify. Demonstrates setup and CRUD functionality with React. Includes Amplify Auth.
 
 ## Available Scripts
 
